@@ -1,6 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'bloc/moviebloc/movie_bloc.dart';
+import 'bloc/moviebloc/movie_bloc_event.dart';
 import 'services/firebase_options.dart';
 import 'screens/info_screen.dart';
 import 'screens/movies_screen.dart';
@@ -28,7 +31,11 @@ class MyApp extends StatelessWidget {
         '/signin': (context) => SignInScreen(),
         '/signup': (context) => SignUpScreen(),
         '/info': (context) => InfoScreen(),
-        '/movies': (context) => MoviesScreen(),
+        '/movies': (context) => BlocProvider<MovieBloc>(
+              create: (context) => MovieBloc()
+                ..add(MovieEvent.started(movieId: 0, query: 'query')),
+              child: MoviesScreen(),
+            ),
       },
     );
   }

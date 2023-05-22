@@ -1,21 +1,11 @@
-import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:proyecto/models/movie.dart';
 
-abstract class MovieState extends Equatable {
-  const MovieState();
+part 'movie_bloc_state.freezed.dart';
 
-  @override
-  List<Object> get props => [];
+@freezed
+class MovieState with _$MovieState {
+  const factory MovieState.loading() = _Loading;
+  const factory MovieState.loaded({required List<Movie> movieList}) = _Loaded;
+  const factory MovieState.error() = _Error;
 }
-
-class MovieLoading extends MovieState {}
-
-class MovieLoaded extends MovieState {
-  final List<Movie> movieList;
-  const MovieLoaded(this.movieList);
-
-  @override
-  List<Object> get props => [movieList];
-}
-
-class MovieError extends MovieState {}
