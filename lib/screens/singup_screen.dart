@@ -41,7 +41,7 @@ class SignUpScreen extends StatelessWidget {
       });
 
       // TODO: Navigate to your success screen
-      Navigator.pushNamed(context, '/principal');
+      Navigator.pushNamed(context, '/movies');
     } catch (e) {
       print(e);
     }

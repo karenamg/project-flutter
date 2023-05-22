@@ -1,11 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-import 'firebase_options.dart';
-import 'models/infoscreen.dart';
-import 'models/principalscreen.dart';
-import 'models/singinscreen.dart';
-import 'models/singupscreen.dart';
+import 'services/firebase_options.dart';
+import 'screens/info_screen.dart';
+import 'screens/movies_screen.dart';
+import 'screens/singin_screen.dart';
+import 'screens/singup_screen.dart';
 
 void main() async {
   await Firebase.initializeApp(
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         '/signin': (context) => SignInScreen(),
         '/signup': (context) => SignUpScreen(),
         '/info': (context) => InfoScreen(),
-        '/principal': (context) => PrincipalScreen(),
+        '/movies': (context) => MoviesScreen(),
       },
     );
   }

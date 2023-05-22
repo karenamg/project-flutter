@@ -13,7 +13,7 @@ class SignInScreen extends StatelessWidget {
         password: passwordController.text,
       );
 
-      Navigator.pushNamed(context, '/principal');
+      Navigator.pushNamed(context, '/movies');
     } catch (e) {
       print(e);
     }
